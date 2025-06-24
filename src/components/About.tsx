@@ -38,14 +38,22 @@ const About = () => {
                 ))}
               </p>
             </div>
-            <motion.p
-              variants={opacity}
-              initial="initial"
-              animate={isInView ? "open" : "closed"}
-              className="text-lg text-gray-600 mb-8"
-            >
-              {paragraph}
-            </motion.p>
+            <div className="text-lg text-gray-600 mb-8">
+              <p>
+                {paragraph.split(" ").map((word: string, index: number) => (
+                  <span key={index} className="inline-block overflow-hidden">
+                    <motion.span
+                      variants={slideUp(index + phrase.split(" ").length)}
+                      initial="initial"
+                      animate={isInView ? "open" : "closed"}
+                      className="inline-block"
+                    >
+                      {word}&nbsp;
+                    </motion.span>
+                  </span>
+                ))}
+              </p>
+            </div>
             <div className="grid grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="text-3xl font-bold text-terros-mint mb-2">100+</div>
