@@ -14,7 +14,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-left pl-5"
+          className="text-left pl-2"
         >
           <h1 className="text-4xl md:text-6xl font-light text-white mb-6">
             Custom Digital
