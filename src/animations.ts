@@ -84,6 +84,37 @@ export const perspective: PerspectiveAnimation = {
   },
 };
 
+// 3D Carousel text rotation animation
+export const textCarousel = {
+  initial: {
+    rotateX: 0,
+    y: 0,
+  },
+  hover: {
+    rotateX: -90,
+    y: -10,
+    transition: {
+      duration: 0.4,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  }
+};
+
+export const textCarouselSecond = {
+  initial: {
+    rotateX: 90,
+    y: 10,
+  },
+  hover: {
+    rotateX: 0,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  }
+};
+
 // Simple slide animation like webyansh.com
 export const slideText = {
   initial: { y: 0 },
