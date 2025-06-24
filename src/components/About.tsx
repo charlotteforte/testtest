@@ -76,7 +76,12 @@ const About = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="bg-gradient-to-br from-terros-blue to-terros-light rounded-2xl p-8 text-white">
+            <div 
+              className="rounded-2xl p-8 text-white"
+              style={{
+                background: 'radial-gradient(134.26% 206.72% at 50% 224.56%, #7ED7C1 46.6%, #31D3AE 68.83%, #58739C 100%)'
+              }}
+            >
               <h3 className="text-2xl font-medium mb-4">Why Choose Us?</h3>
               <ul className="space-y-3">
                 <li className="flex items-center">
