@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { perspective } from '../animations'
 
 const Hero = () => {
   return (
@@ -92,16 +93,32 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-white text-terros-blue px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="bg-white text-terros-blue px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden"
             >
-              Démarrer votre projet
+              <motion.span
+                variants={perspective}
+                initial="initial"
+                whileHover="enter"
+                exit="exit"
+                className="block"
+              >
+                Démarrer votre projet
+              </motion.span>
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl text-lg font-medium hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
+              className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl text-lg font-medium hover:bg-white/10 transition-all duration-300 backdrop-blur-sm relative overflow-hidden"
             >
-              Voir nos réalisations
+              <motion.span
+                variants={perspective}
+                initial="initial"
+                whileHover="enter"
+                exit="exit"
+                className="block"
+              >
+                Voir nos réalisations
+              </motion.span>
             </motion.button>
           </motion.div>
         </motion.div>
