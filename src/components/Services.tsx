@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { textCarousel, textCarouselSecond } from '../animations'
 
 const services = [
   {
@@ -127,29 +126,9 @@ const Services = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`mt-6 w-full py-3 px-6 bg-gradient-to-r ${service.color} text-white rounded-xl font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 hover:shadow-lg relative overflow-hidden`}
-                    style={{ perspective: '1000px' }}
+                    className={`mt-6 w-full py-3 px-6 bg-gradient-to-r ${service.color} text-white rounded-xl font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 hover:shadow-lg`}
                   >
-                    <div className="relative h-5">
-                      <motion.span
-                        variants={textCarousel}
-                        initial="initial"
-                        whileHover="hover"
-                        className="absolute inset-0 flex items-center justify-center"
-                        style={{ transformOrigin: 'center bottom' }}
-                      >
-                        En savoir plus
-                      </motion.span>
-                      <motion.span
-                        variants={textCarouselSecond}
-                        initial="initial"
-                        whileHover="hover"
-                        className="absolute inset-0 flex items-center justify-center"
-                        style={{ transformOrigin: 'center top' }}
-                      >
-                        En savoir plus
-                      </motion.span>
-                    </div>
+                    En savoir plus
                   </motion.button>
                 </div>
               </div>
@@ -181,29 +160,9 @@ const Services = () => {
           <motion.button
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-terros-blue to-terros-mint text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-xl transition-all duration-300 relative overflow-hidden"
-            style={{ perspective: '1000px' }}
+            className="bg-gradient-to-r from-terros-blue to-terros-mint text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-xl transition-all duration-300"
           >
-            <div className="relative h-6">
-              <motion.span
-                variants={textCarousel}
-                initial="initial"
-                whileHover="hover"
-                className="absolute inset-0 flex items-center justify-center"
-                style={{ transformOrigin: 'center bottom' }}
-              >
-                Discutons de votre projet
-              </motion.span>
-              <motion.span
-                variants={textCarouselSecond}
-                initial="initial"
-                whileHover="hover"
-                className="absolute inset-0 flex items-center justify-center"
-                style={{ transformOrigin: 'center top' }}
-              >
-                Discutons de votre projet
-              </motion.span>
-            </div>
+            Discutons de votre projet
           </motion.button>
         </motion.div>
       </div>

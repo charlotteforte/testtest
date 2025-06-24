@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { textCarousel, textCarouselSecond } from '../animations'
 
 const Hero = () => {
   return (
@@ -93,56 +92,16 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-white text-terros-blue px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden"
-              style={{ perspective: '1000px' }}
+              className="bg-white text-terros-blue px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
-              <div className="relative h-6">
-                <motion.span
-                  variants={textCarousel}
-                  initial="initial"
-                  whileHover="hover"
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{ transformOrigin: 'center bottom' }}
-                >
-                  Démarrer votre projet
-                </motion.span>
-                <motion.span
-                  variants={textCarouselSecond}
-                  initial="initial"
-                  whileHover="hover"
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{ transformOrigin: 'center top' }}
-                >
-                  Démarrer votre projet
-                </motion.span>
-              </div>
+              Démarrer votre projet
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl text-lg font-medium hover:bg-white/10 transition-all duration-300 backdrop-blur-sm relative overflow-hidden"
-              style={{ perspective: '1000px' }}
+              className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl text-lg font-medium hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
             >
-              <div className="relative h-6">
-                <motion.span
-                  variants={textCarousel}
-                  initial="initial"
-                  whileHover="hover"
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{ transformOrigin: 'center bottom' }}
-                >
-                  Voir nos réalisations
-                </motion.span>
-                <motion.span
-                  variants={textCarouselSecond}
-                  initial="initial"
-                  whileHover="hover"
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{ transformOrigin: 'center top' }}
-                >
-                  Voir nos réalisations
-                </motion.span>
-              </div>
+              Voir nos réalisations
             </motion.button>
           </motion.div>
         </motion.div>
