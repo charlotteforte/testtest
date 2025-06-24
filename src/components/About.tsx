@@ -24,16 +24,16 @@ const About = () => {
             </p>
             <div className="grid grid-cols-3 gap-8">
               <div className="text-center">
+                <div className="text-3xl font-bold text-terros-mint mb-2">100+</div>
+                <div className="text-gray-600">Projets Réalisés</div>
+              </div>
+              <div className="text-center">
                 <div className="text-3xl font-bold text-terros-mint mb-2">50+</div>
-                <div className="text-gray-600">Projects</div>
+                <div className="text-gray-600">Clients</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-terros-mint mb-2">5+</div>
-                <div className="text-gray-600">Years</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-terros-mint mb-2">100%</div>
-                <div className="text-gray-600">Satisfaction</div>
+                <div className="text-3xl font-bold text-terros-mint mb-2">100k+</div>
+                <div className="text-gray-600">Utilisateurs</div>
               </div>
             </div>
           </motion.div>
