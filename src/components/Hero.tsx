@@ -9,18 +9,19 @@ const Hero = () => {
         background: 'radial-gradient(134.26% 206.72% at 50% 224.56%, #7ED7C1 46.6%, #31D3AE 68.83%, #58739C 100%)'
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="text-left"
         >
           <h1 className="text-5xl md:text-7xl font-light text-white mb-6">
             Custom Digital
             <br />
             <span className="font-bold">Development</span>
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto font-light">
+          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl font-light">
             We craft exceptional digital experiences that transform your vision into reality
           </p>
           <motion.button
