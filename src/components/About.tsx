@@ -22,7 +22,7 @@ const About = () => {
             <h2 className="text-4xl md:text-5xl font-light text-terros-blue mb-6">
               About Terros
             </h2>
-            <div className="text-lg text-gray-600 mb-6">
+            <div className="text-lg text-black mb-6">
               <p>
                 {phrase.split(" ").map((word: string, index: number) => (
                   <span key={index} className="inline-block overflow-hidden">
@@ -38,7 +38,7 @@ const About = () => {
                 ))}
               </p>
             </div>
-            <div className="text-lg text-gray-600 mb-8">
+            <div className="text-lg text-black mb-8">
               <p>
                 {paragraph.split(" ").map((word: string, index: number) => (
                   <span key={index} className="inline-block overflow-hidden">

@@ -4,8 +4,8 @@ export const slideUp = (i: number) => ({
     y: 0,
     opacity: 1,
     transition: {
-      delay: i * 0.03,
-      duration: 0.4,
+      delay: i * 0.01,
+      duration: 0.2,
       ease: "easeOut",
     },
   },
