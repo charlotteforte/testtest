@@ -1,10 +1,7 @@
-import { motion, AnimatePresence } from 'framer-motion'
-import { perspective } from '../animations'
-import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { slideText, slideTextUp } from '../animations'
 
 const Hero = () => {
-  const [hoveredButton, setHoveredButton] = useState<string | null>(null)
-
   return (
     <section 
       id="home" 
@@ -96,64 +93,50 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              onHoverStart={() => setHoveredButton('primary')}
-              onHoverEnd={() => setHoveredButton(null)}
-              className="bg-white text-terros-blue px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden"
+              className="bg-white text-terros-blue px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group"
             >
-              <AnimatePresence mode="wait">
-                {hoveredButton === 'primary' ? (
-                  <motion.span
-                    key="primary-hover"
-                    variants={perspective}
-                    initial="initial"
-                    animate="enter"
-                    exit="exit"
-                    className="block"
-                  >
-                    Démarrer votre projet
-                  </motion.span>
-                ) : (
-                  <motion.span
-                    key="primary-normal"
-                    initial={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="block"
-                  >
-                    Démarrer votre projet
-                  </motion.span>
-                )}
-              </AnimatePresence>
+              <div className="relative">
+                <motion.span
+                  variants={slideText}
+                  initial="initial"
+                  whileHover="hover"
+                  className="block"
+                >
+                  Démarrer votre projet
+                </motion.span>
+                <motion.span
+                  variants={slideTextUp}
+                  initial="initial"
+                  whileHover="hover"
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  Démarrer votre projet
+                </motion.span>
+              </div>
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              onHoverStart={() => setHoveredButton('secondary')}
-              onHoverEnd={() => setHoveredButton(null)}
-              className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl text-lg font-medium hover:bg-white/10 transition-all duration-300 backdrop-blur-sm relative overflow-hidden"
+              className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl text-lg font-medium hover:bg-white/10 transition-all duration-300 backdrop-blur-sm relative overflow-hidden group"
             >
-              <AnimatePresence mode="wait">
-                {hoveredButton === 'secondary' ? (
-                  <motion.span
-                    key="secondary-hover"
-                    variants={perspective}
-                    initial="initial"
-                    animate="enter"
-                    exit="exit"
-                    className="block"
-                  >
-                    Voir nos réalisations
-                  </motion.span>
-                ) : (
-                  <motion.span
-                    key="secondary-normal"
-                    initial={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="block"
-                  >
-                    Voir nos réalisations
-                  </motion.span>
-                )}
-              </AnimatePresence>
+              <div className="relative">
+                <motion.span
+                  variants={slideText}
+                  initial="initial"
+                  whileHover="hover"
+                  className="block"
+                >
+                  Voir nos réalisations
+                </motion.span>
+                <motion.span
+                  variants={slideTextUp}
+                  initial="initial"
+                  whileHover="hover"
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  Voir nos réalisations
+                </motion.span>
+              </div>
             </motion.button>
           </motion.div>
         </motion.div>

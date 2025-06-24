@@ -83,3 +83,26 @@ export const perspective: PerspectiveAnimation = {
     },
   },
 };
+
+// Simple slide animation like webyansh.com
+export const slideText = {
+  initial: { y: 0 },
+  hover: { 
+    y: -30,
+    transition: {
+      duration: 0.3,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  }
+};
+
+export const slideTextUp = {
+  initial: { y: 30 },
+  hover: { 
+    y: 0,
+    transition: {
+      duration: 0.3,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  }
+};
