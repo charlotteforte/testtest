@@ -2,7 +2,13 @@ import { motion } from 'framer-motion'
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-terros-blue to-terros-light">
+    <section 
+      id="home" 
+      className="min-h-screen flex items-center justify-center"
+      style={{
+        background: 'radial-gradient(134.26% 206.72% at 50% 224.56%, #7ED7C1 46.6%, #31D3AE 68.83%, #58739C 100%)'
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
