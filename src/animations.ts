@@ -1,5 +1,17 @@
 import { Variants } from 'framer-motion';
 
+
+    opacity: 1,
+    rotateX: 0,
+    translateY: 0,
+    translateX: 0,
+    display: 'block',
+    transition: {
+
+    },
+  },
+};
+
 export interface PerspectiveAnimation extends Variants {
   initial: {
     opacity: number;
@@ -62,4 +74,58 @@ export const perspective: PerspectiveAnimation = {
       ease: [0.76, 0, 0.24, 1],
     },
   },
+};
+
+// 3D Carousel text rotation animation
+export const textCarousel = {
+  initial: {
+    rotateX: 0,
+    y: 0,
+  },
+  hover: {
+    rotateX: -90,
+    y: -10,
+    transition: {
+      duration: 0.4,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  }
+};
+
+export const textCarouselSecond = {
+  initial: {
+    rotateX: 90,
+    y: 10,
+  },
+  hover: {
+    rotateX: 0,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  }
+};
+
+// Simple slide animation like webyansh.com
+export const slideText = {
+  initial: { y: 0 },
+  hover: { 
+    y: -30,
+    transition: {
+      duration: 0.3,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  }
+};
+
+export const slideTextUp = {
+  initial: { y: 30 },
+  hover: { 
+    y: 0,
+    transition: {
+      duration: 0.3,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  }
 };
