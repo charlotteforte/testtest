@@ -1,7 +1,10 @@
-import { motion } from 'framer-motion'
-import { slideText, slideTextUp } from '../animations'
+import { motion, AnimatePresence } from 'framer-motion'
+import { perspective } from '../animations'
+import { useState } from 'react'
 
 const Hero = () => {
+  const [isHovered, setIsHovered] = useState<string | null>(null)
+
   return (
     <section 
       id="home" 
@@ -93,50 +96,52 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-white text-terros-blue px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group"
+              onHoverStart={() => setIsHovered('primary')}
+              onHoverEnd={() => setIsHovered(null)}
+              className="bg-white text-terros-blue px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden"
             >
-              <div className="relative">
-                <motion.span
-                  variants={slideText}
-                  initial="initial"
-                  whileHover="hover"
-                  className="block"
-                >
-                  Démarrer votre projet
-                </motion.span>
-                <motion.span
-                  variants={slideTextUp}
-                  initial="initial"
-                  whileHover="hover"
-                  className="absolute inset-0 flex items-center justify-center"
-                >
-                  Démarrer votre projet
-                </motion.span>
-              </div>
+              <AnimatePresence mode="wait">
+                {isHovered === 'primary' && (
+                  <motion.div
+                    key="primary-hover"
+                    variants={perspective}
+                    initial="initial"
+                    animate="enter"
+                    exit="exit"
+                    className="absolute inset-0 flex items-center justify-center"
+                  >
+                    Démarrer votre projet
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <span className={isHovered === 'primary' ? 'invisible' : 'block'}>
+                Démarrer votre projet
+              </span>
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl text-lg font-medium hover:bg-white/10 transition-all duration-300 backdrop-blur-sm relative overflow-hidden group"
+              onHoverStart={() => setIsHovered('secondary')}
+              onHoverEnd={() => setIsHovered(null)}
+              className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl text-lg font-medium hover:bg-white/10 transition-all duration-300 backdrop-blur-sm relative overflow-hidden"
             >
-              <div className="relative">
-                <motion.span
-                  variants={slideText}
-                  initial="initial"
-                  whileHover="hover"
-                  className="block"
-                >
-                  Voir nos réalisations
-                </motion.span>
-                <motion.span
-                  variants={slideTextUp}
-                  initial="initial"
-                  whileHover="hover"
-                  className="absolute inset-0 flex items-center justify-center"
-                >
-                  Voir nos réalisations
-                </motion.span>
-              </div>
+              <AnimatePresence mode="wait">
+                {isHovered === 'secondary' && (
+                  <motion.div
+                    key="secondary-hover"
+                    variants={perspective}
+                    initial="initial"
+                    animate="enter"
+                    exit="exit"
+                    className="absolute inset-0 flex items-center justify-center"
+                  >
+                    Voir nos réalisations
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <span className={isHovered === 'secondary' ? 'invisible' : 'block'}>
+                Voir nos réalisations
+              </span>
             </motion.button>
           </motion.div>
         </motion.div>

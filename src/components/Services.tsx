@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion'
-import { slideText, slideTextUp } from '../animations'
+import { motion, AnimatePresence } from 'framer-motion'
+import { perspective } from '../animations'
+import { useState } from 'react'
 
 const services = [
   {
@@ -47,6 +48,8 @@ const services = [
 ]
 
 const Services = () => {
+  const [hoveredButton, setHoveredButton] = useState<string | null>(null)
+
   return (
     <section id="services" className="py-32 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Background Elements */}
@@ -127,26 +130,27 @@ const Services = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onHoverStart={() => setHoveredButton(`service-${index}`)}
+                    onHoverEnd={() => setHoveredButton(null)}
                     className={`mt-6 w-full py-3 px-6 bg-gradient-to-r ${service.color} text-white rounded-xl font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 hover:shadow-lg relative overflow-hidden`}
                   >
-                    <div className="relative">
-                      <motion.span
-                        variants={slideText}
-                        initial="initial"
-                        whileHover="hover"
-                        className="block"
-                      >
-                        En savoir plus
-                      </motion.span>
-                      <motion.span
-                        variants={slideTextUp}
-                        initial="initial"
-                        whileHover="hover"
-                        className="absolute inset-0 flex items-center justify-center"
-                      >
-                        En savoir plus
-                      </motion.span>
-                    </div>
+                    <AnimatePresence mode="wait">
+                      {hoveredButton === `service-${index}` && (
+                        <motion.div
+                          key={`service-${index}-hover`}
+                          variants={perspective}
+                          initial="initial"
+                          animate="enter"
+                          exit="exit"
+                          className="absolute inset-0 flex items-center justify-center"
+                        >
+                          En savoir plus
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                    <span className={hoveredButton === `service-${index}` ? 'invisible' : 'block'}>
+                      En savoir plus
+                    </span>
                   </motion.button>
                 </div>
               </div>
@@ -178,26 +182,27 @@ const Services = () => {
           <motion.button
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
+            onHoverStart={() => setHoveredButton('main-cta')}
+            onHoverEnd={() => setHoveredButton(null)}
             className="bg-gradient-to-r from-terros-blue to-terros-mint text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-xl transition-all duration-300 relative overflow-hidden"
           >
-            <div className="relative">
-              <motion.span
-                variants={slideText}
-                initial="initial"
-                whileHover="hover"
-                className="block"
-              >
-                Discutons de votre projet
-              </motion.span>
-              <motion.span
-                variants={slideTextUp}
-                initial="initial"
-                whileHover="hover"
-                className="absolute inset-0 flex items-center justify-center"
-              >
-                Discutons de votre projet
-              </motion.span>
-            </div>
+            <AnimatePresence mode="wait">
+              {hoveredButton === 'main-cta' && (
+                <motion.div
+                  key="main-cta-hover"
+                  variants={perspective}
+                  initial="initial"
+                  animate="enter"
+                  exit="exit"
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  Discutons de votre projet
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <span className={hoveredButton === 'main-cta' ? 'invisible' : 'block'}>
+              Discutons de votre projet
+            </span>
           </motion.button>
         </motion.div>
       </div>
