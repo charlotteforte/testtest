@@ -1,7 +1,10 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { perspective } from '../animations'
+import { useState } from 'react'
 
 const Hero = () => {
+  const [hoveredButton, setHoveredButton] = useState<string | null>(null)
+
   return (
     <section 
       id="home" 
@@ -93,32 +96,64 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
+              onHoverStart={() => setHoveredButton('primary')}
+              onHoverEnd={() => setHoveredButton(null)}
               className="bg-white text-terros-blue px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden"
             >
-              <motion.span
-                variants={perspective}
-                initial="initial"
-                whileHover="enter"
-                exit="exit"
-                className="block"
-              >
-                Démarrer votre projet
-              </motion.span>
+              <AnimatePresence mode="wait">
+                {hoveredButton === 'primary' ? (
+                  <motion.span
+                    key="primary-hover"
+                    variants={perspective}
+                    initial="initial"
+                    animate="enter"
+                    exit="exit"
+                    className="block"
+                  >
+                    Démarrer votre projet
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="primary-normal"
+                    initial={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="block"
+                  >
+                    Démarrer votre projet
+                  </motion.span>
+                )}
+              </AnimatePresence>
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
+              onHoverStart={() => setHoveredButton('secondary')}
+              onHoverEnd={() => setHoveredButton(null)}
               className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl text-lg font-medium hover:bg-white/10 transition-all duration-300 backdrop-blur-sm relative overflow-hidden"
             >
-              <motion.span
-                variants={perspective}
-                initial="initial"
-                whileHover="enter"
-                exit="exit"
-                className="block"
-              >
-                Voir nos réalisations
-              </motion.span>
+              <AnimatePresence mode="wait">
+                {hoveredButton === 'secondary' ? (
+                  <motion.span
+                    key="secondary-hover"
+                    variants={perspective}
+                    initial="initial"
+                    animate="enter"
+                    exit="exit"
+                    className="block"
+                  >
+                    Voir nos réalisations
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="secondary-normal"
+                    initial={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="block"
+                  >
+                    Voir nos réalisations
+                  </motion.span>
+                )}
+              </AnimatePresence>
             </motion.button>
           </motion.div>
         </motion.div>
